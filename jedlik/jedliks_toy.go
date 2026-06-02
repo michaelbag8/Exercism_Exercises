@@ -1,6 +1,14 @@
 package jedlik
 
 // TODO: define the 'Drive()' method
+// Drive updates the distance and battery of the car.
+func (c *Car) Drive() {
+	if c.battery >= c.batteryDrain {
+		c.distance += c.speed
+		c.battery -= c.batteryDrain
+	}
+}
+
 
 // TODO: define the 'DisplayDistance() string' method
 
