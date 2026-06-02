@@ -18,9 +18,4 @@ func NewCar(speed, batteryDrain int) Car {
 }
 
 // 2. Method with a pointer receiver (*Car) to update the fields directly.
-func (c *Car) Drive() {
-	if c.battery >= c.batteryDrain {
-		c.distance += c.speed
-		c.battery -= c.batteryDrain
-	}
-}
+
