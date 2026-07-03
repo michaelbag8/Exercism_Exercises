@@ -1,20 +1,34 @@
 package jedlik
 
-// TODO: define the 'Drive()' method
-// Drive updates the distance and battery of the car.
+import "fmt"
+
+// Drive updates distance and battery
 func (c *Car) Drive() {
-	if c.battery >= c.batteryDrain {
-		c.distance += c.speed
-		c.battery -= c.batteryDrain
-	}
+    if c.battery < c.batteryDrain {
+        return
+    }
+
+    c.distance += c.speed
+    c.battery -= c.batteryDrain
 }
 
+// DisplayDistance returns formatted distance string
+func (c *Car) DisplayDistance() string {
+    return fmt.Sprintf("Driven %d meters", c.distance)
+}
 
-// TODO: define the 'DisplayDistance() string' method
+// DisplayBattery returns formatted battery string
+func (c *Car) DisplayBattery() string {
+    return fmt.Sprintf("Battery at %d%%", c.battery)
+}
 
-// TODO: define the 'DisplayBattery() string' method
+// CanFinish checks if car can complete track
+func (c *Car) CanFinish(trackDistance int) bool {
+    maxDrives := c.battery / c.batteryDrain
+    maxDistance := maxDrives * c.speed
 
-// TODO: define the 'CanFinish(trackDistance int) bool' method
+    return maxDistance >= trackDistance
+}
 
 // Your first steps could be to read through the tasks, and create
 // these functions with their correct parameter lists and return types.
