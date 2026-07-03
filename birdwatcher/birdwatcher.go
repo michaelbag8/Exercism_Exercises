@@ -39,9 +39,11 @@ func BirdsInWeek(birdsPerDay []int, week int) int {
 // FixBirdCountLog returns the bird counts after correcting
 // the bird counts for alternate days.
 func FixBirdCountLog(birdsPerDay []int) []int {
-	panic("Please implement the FixBirdCountLog() function")
+	for i := 0; i < len(birdsPerDay); i += 2 {
+		birdsPerDay[i] += 1
+	}
+	return birdsPerDay
 }
-
 func main() {
 
 	birdsPerDays := []int{2, 5, 0, 7, 4, 1, 3, 0, 2, 5, 0, 1, 3, 1}
@@ -50,7 +52,7 @@ func main() {
 	birdsPerDay := []int{2, 5, 0, 7, 4, 1, 3, 0, 2, 5, 0, 1, 3, 1}
 	fmt.Println(BirdsInWeek(birdsPerDay, 2))
 
-	birdsPerDayz := []int{2, 5, 0, 7, 4, 1, 3, 0, 2, 5, 0, 1, 3, 1}
-	fmt.Println(BirdsInWeek(birdsPerDayz, 2))
-	
+	birdsPerDayz := []int{2, 5, 0, 7, 4, 1}
+	fmt.Println(FixBirdCountLog(birdsPerDayz))
+
 }
